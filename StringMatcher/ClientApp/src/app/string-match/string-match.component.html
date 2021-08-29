@@ -9,7 +9,7 @@
             <label>
               Input Sentence : <span class="required-asterisk">*</span>
             </label>
-            <textarea id="A" name="inputString" [(ngModel)]="inputString" rows="6" (keyup)="keyupInputString()" [ngClass]="classesInputSentence" class="form-control" [disabled]="isDisabledInputString"> </textarea>
+            <textarea id="A" name="inputString" [(ngModel)]="inputString" rows="6" (keyup)="keyupInputString()" class="form-control" [disabled]="isDisabledInputString"> </textarea>
             <div class="alert alert-danger" *ngIf="!inputString && inputStringTouched">
               Input Sentence Required.
             </div>
