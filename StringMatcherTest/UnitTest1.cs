@@ -145,7 +145,7 @@ namespace StringMatcherTest
         }
 
         [TestMethod]
-        public void ShouldIgnoreWhiteSpace()
+        public void TestShouldIgnoreWhiteSpace()
         {
             //Arrange
             
@@ -165,7 +165,7 @@ namespace StringMatcherTest
 
 
         [TestMethod]
-        public void ShouldIgnoreWhiteSpaceAtEnd()
+        public void TestShouldIgnoreWhiteSpaceAtEnd()
         {
             //Arrange
 
