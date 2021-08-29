@@ -1,0 +1,73 @@
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <label>
+              Input Sentence : <span class="required-asterisk">*</span>
+            </label>
+            <textarea id="A" name="inputString" [(ngModel)]="inputString" rows="6" (keyup)="keyupInputString()" [ngClass]="classesInputSentence" class="form-control" [disabled]="isDisabledInputString"> </textarea>
+            <div class="alert alert-danger" *ngIf="!inputString && inputStringTouched">
+              Input Sentence Required.
+            </div>
+          </div>
+          &nbsp;
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <label>
+              Search Text : <span class="required-asterisk">*</span>
+            </label>
+            <input type="text" name="subString" [(ngModel)]="subString" (keyup)="keyupSubString()" class="form-control" ng-required="true" [disabled]="isDisabledSubString" />
+            <div class="alert alert-danger" *ngIf="!subString && subStringTouched">
+              Search Text Required.
+            </div>
+            <div class="alert alert-danger" *ngIf="isExceedSearchLength">
+              Search Text Exceed!
+            </div>
+
+          </div>
+          &nbsp;
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-check">
+            <input class="form-check-input" type="checkbox" name="caseSearch" [(ngModel)]="caseSearchCheck" id="checkBoxIgnoreCase" />
+            <label class="form-check-lable" for="checkBoxIgnoreCase"> Ignore Case </label>
+          </div>
+          &nbsp;
+        </div>
+        
+        <button type="button" class="btn btn-primary" (click)="searchMatchingValues(inputString,subString,caseSearchCheck)" name="submit" [disabled]="!validPost"> Submit </button>
+        <button type="button" class="btn btn-primary" (click)="resetValues()" name="reset"> Reset </button>
+        <br />
+        <br />
+        <div id="results" class="row">
+          <div class="col-md-12">
+            <ul>
+              <li *ngFor="let matchIndex of matchIndexs; let i = index">
+                <div class="text-warning">
+                  {{i +1}}. Index {{matchIndex.startIndex}}
+                </div>
+              </li>
+            </ul>
+            <br />
+            <br />
+            <div *ngIf="noMatchFound" class="alert alert-warning box-msg" role="alert">
+              <strong> No Match Found</strong>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+      </div>
+    </div>
+    
+
+  </div>
+
+
